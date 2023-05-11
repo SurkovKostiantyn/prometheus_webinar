@@ -96,10 +96,13 @@ const makeJoke = () => {
     // координати блоку:
     let blockX = joke.style.left;
     let blockY = joke.style.top;
+    // Розміри блоку:
+    let blockWidth = joke.offsetWidth;
+    let blockHeight = joke.offsetHeight;
     // Підбираємо блоку нові координати у випадковому місці екрана, перевіряємо, щоб блок не виходив за межі екрана:
     do {
-        blockX = Math.floor(Math.random() * (window.innerWidth - 100)) + 'px';
-        blockY = Math.floor(Math.random() * (window.innerHeight - 100)) + 'px';
+        blockX = Math.floor(Math.random() * (window.innerWidth - blockWidth)) + 'px';
+        blockY = Math.floor(Math.random() * (window.innerHeight - blockHeight)) + 'px';
     }while (x > blockX && x < blockX + 100 && y > blockY && y < blockY + 100);
     // Змінюємо позицію блоку:
     joke.style.left = blockX;
