@@ -9,19 +9,18 @@ const changeColor = () => { // функція зміни кольору фону
 
 const getText = () => {
     let input_text = document.getElementById('input_text').value; // отримуємо значення тексту з textarea
+
     console.log(input_text); // виводимо в консоль
 
     // перевіряємо чи існує елемент з id output
-    // Зазвичай так не роблять, але для прикладу підійде
-    let output = null;
-    if(document.getElementById('output') === null) {
+    let output = document.getElementById('output');
+    if(output === null) {
         let block = document.getElementById('block'); // отримуємо елемент з id block
         output = document.createElement('p'); // створюємо елемент p
         output.id = 'output'; // задаємо id
         output.className = 'info'; // задаємо клас
         block.appendChild(output); // вставляємо в block
     }else{
-        output = document.getElementById('output'); // отримуємо елемент з id output
         output.innerHTML = ''; // очищаємо його
     }
 
