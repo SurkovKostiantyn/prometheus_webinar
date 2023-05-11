@@ -1,0 +1,81 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#error {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  outline: 2px solid #000;
+  padding: 6px;
+  text-align: center;
+  cursor: not-allowed;
+}
+
+#joke {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  height: 100px;
+  width: 100px;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url(https://picsum.photos/200/300?random);
+  outline: 2px solid #000;
+  padding: 6px;
+  text-align: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-shadow: 0 0 2px #ff0000;
+}
+
+body {
+  background-color: #ccffcc;
+  color: #990000;
+  font: 400 1.2rem/1.5rem Roboto, sans-serif !important;
+  position: relative;
+}
+
+.info {
+  background-color: #fff;
+  outline: 2px solid #000;
+}
+.info span {
+  padding: 10px;
+  display: block;
+}
+.info span:nth-child(2n-1) {
+  background-color: #ccffcc;
+}
+
+.block {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  gap: 40px;
+}
+.block label, .block input, .block button {
+  text-align: center;
+  width: 200px;
+  display: block;
+}
+.block textarea {
+  width: 200px;
+  height: 100px;
+  resize: none;
+}
+.block button, .block textarea {
+  box-sizing: border-box;
+  padding: 12px 16px;
+  font: inherit;
+}
+
+/*# sourceMappingURL=style.css.map */
