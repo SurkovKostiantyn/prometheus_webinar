@@ -1,3 +1,29 @@
+let joke; // змінна для зберігання елемента з id joke
+window.onload = () => { // виконується коли завантажилась сторінка
+    joke = document.getElementById('joke'); // отримуємо елемент з id joke
+}
+
+window.onresize = () => {
+    let x = window.innerWidth; // отримуємо ширину вікна
+    let y = window.innerHeight; // отримуємо висоту вікна
+    if (x < 500 || y < 500) {
+        joke.style.display = 'none'; // приховуємо елемент
+    } else {
+        joke.style.display = 'block'; // показуємо елемент
+    }
+}
+
+const startFollowing = () => { // функція початку слідкування за курсором
+    let error = document.getElementById('error'); // отримуємо елемент з id error
+    error.style.transitionDelay = 'all 0.5s'; // задаємо анімацію зміни положення
+    document.onmousemove = (e) => { // виконується коли курсор рухається
+        let x = e.clientX;
+        let y = e.clientY;
+        error.style.left = x + 'px'; // задаємо координату x для елемента
+        error.style.top = y + 'px'; // задаємо координату y для елемента
+    }
+}
+
 const changeColor = () => { // функція зміни кольору фону, arrow функція типу Void (не повертає значення)
     let body = document.querySelector('body'); // отримуємо елемент body та зберігаємо змінну body
     let input_color = document.getElementById('input_color').value; // отримуємо значення кольору в hex з input
@@ -83,7 +109,6 @@ const makeError = () => {
 
 const makeJoke = () => {
     // міняємо позицію блоку, щоб користувач не міг натиснути на кнопку
-    let joke = document.getElementById('joke');
 
     // рандомна картинка з інтернету
     let img = 'https://picsum.photos/200/300?random=' + Math.random();

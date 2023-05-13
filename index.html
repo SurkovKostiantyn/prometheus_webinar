@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="error" onclick="makeError()">Не натискати.</div>
+    <div id="error" onclick="makeError()" onmouseenter="startFollowing()">Не натискати.</div>
     <div id="joke" onmouseenter="makeJoke()">А це ви не зможете натиснути</div>
     <div class="block" id="block">
         <p class="info">
-            <span>У нас є 1 інпут, 1 текстове поле та 2 кнопочки.</span>
-            <span>Перший інпут - це колір, який ми хочемо встановити.</span>
+            <span>У нас є 1 input, 1 текстове поле та 2 кнопочки.</span>
+            <span>Перший input - це колір, який ми хочемо встановити.</span>
             <span>При натисканні на кнопочку змінюємо background-color нашого body.</span>
             <span>Текстове поле - це ввід тексту, який ми хочемо опрацювати.</span>
             <span>При натисканні на кнопочку можемо порахувати кількість символів, кількість повторів кожного символу, lowercase, UPPERCASE та інші параметри.</span>
