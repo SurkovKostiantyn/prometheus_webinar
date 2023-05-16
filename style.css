@@ -60,7 +60,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 400px;
+  width: 600px;
   gap: 40px;
 }
 .block label, .block input, .block button {
