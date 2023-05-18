@@ -269,6 +269,44 @@
                 </span>
             </p>
         </div>
+        <div class="block">
+            <p class="info">
+                <span class="heading">
+                    Що таке AJAX? Асинхронний JavaScript?
+                </span>
+                <span>
+                    AJAX - це технологія, яка дозволяє виконувати запити до сервера без перезавантаження сторінки.<br>
+                    Асинхронний JavaScript - це JavaScript, який виконується відокремлено від основного потоку виконання.<br>
+                    Це дозволяє виконувати довгі операції, не блокуючи виконання інших операцій.<br>
+                </span>
+                <span>
+                    Приклад:<br>
+                    <code>
+                        <span class="code">let xhr = new XMLHttpRequest();</span><br>
+                        <span class="code">xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1');</span><br>
+                        <span class="code">xhr.send();</span><br>
+                        <span class="code">xhr.onreadystatechange = function() {</span><br>
+                        <span class="code">&nbsp;&nbsp;if (xhr.readyState === 4) {</span><br>
+                        <span class="code"> &nbsp;&nbsp;&nbsp;&nbsp;if (xhr.status === 200) {</span><br>
+                        <span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(xhr.responseText);</span><br>
+                        <span class="code">&nbsp;&nbsp;&nbsp;&nbsp;}</span><br>
+                        <span class="code">&nbsp;&nbsp;}</span><br>
+                        <span class="code">}</span><br>
+                    </code>
+                </span>
+            </p>
+        </div>
+        <div class="block">
+            <p class="info">
+                <span class="heading">
+                    Просто прикольчик. Приклад взаємодії з клавіатурою. Можете стрілочками рухати квадратик.
+                </span>
+                <span id="fieldScore">Рахунок: 0</span>
+                <div id="gameSnake">
+                    <script src="gameSnake.js"></script>
+                </div>
+            </p>
+        </div>
     </div>
     <footer>
         <ul>

@@ -174,4 +174,9 @@ code > .code {
   color: orange;
 }
 
+#fieldScore {
+  text-align: center;
+  color: red;
+}
+
 /*# sourceMappingURL=style.css.map */
