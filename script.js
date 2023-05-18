@@ -19,8 +19,14 @@ const startFollowing = () => { // функція початку слідкува
     document.onmousemove = (e) => { // виконується коли курсор рухається
         let x = e.clientX;
         let y = e.clientY;
-        error.style.left = x + 'px'; // задаємо координату x для елемента
-        error.style.top = y + 'px'; // задаємо координату y для елемента
+        // Виставляємо координати елемента error:
+        error.style.top = y + 'px';
+        error.style.left = x + 'px';
+        // Але якщо pageHeight більше за висоту вікна, то виставляємо відповідно:
+        let pageHeight = document.body.scrollHeight;
+        if (pageHeight > window.innerHeight) {
+            error.style.top = y + window.pageYOffset + 'px';
+        }
     }
 }
 
