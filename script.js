@@ -132,5 +132,4 @@ const makeJoke = () => {
     // Змінюємо позицію блоку:
     joke.style.left = blockX;
     joke.style.top = blockY;
-
 }

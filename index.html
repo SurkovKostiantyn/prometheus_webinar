@@ -10,35 +10,74 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <nav>
-        <a href="index.html">Вебінар 1</a>
-        <a href="index2.html">Вебінар 2</a>
+        <a class="btn" href="index.html">Вебінар 1</a>
+        <a class="btn" href="index2.html">Вебінар 2</a>
     </nav>
-    <div id="error" onclick="makeError()" onmouseenter="startFollowing()">Не натискати.</div>
-    <div id="joke" onmouseenter="makeJoke()">А це ви не зможете натиснути</div>
-    <div class="block" id="block">
-        <p class="info">
-            <span>У нас є 1 input, 1 текстове поле та 2 кнопочки.</span>
-            <span>Перший input - це колір, який ми хочемо встановити.</span>
-            <span>При натисканні на кнопочку змінюємо background-color нашого body.</span>
-            <span>Текстове поле - це ввід тексту, який ми хочемо опрацювати.</span>
-            <span>При натисканні на кнопочку можемо порахувати кількість символів, кількість повторів кожного символу, lowercase, UPPERCASE та інші параметри.</span>
-        </p>
-        <label>
-            <span>Обрати колір:</span>
-            <input type="color" id="input_color">
-        </label>
-        <button onclick="changeColor()">Змінити колір</button>
-        <label>
-            <span>Поле вводу:</span>
-            <textarea id="input_text" ></textarea>
-        </label>
-        <button onclick="getText()">Опрацювати</button>
+
+    <div class="content">
+
+        <div id="error" onclick="makeError()" onmouseenter="startFollowing()">Не натискати.</div>
+        <div id="joke" onmouseenter="makeJoke()">А це ви не зможете натиснути</div>
+
+        <div class="block" id="block">
+            <p class="info">
+                <span>У нас є 1 input, 1 текстове поле та 2 кнопочки.</span>
+                <span>Перший input - це колір, який ми хочемо встановити.</span>
+                <span>При натисканні на кнопочку змінюємо background-color нашого body.</span>
+                <span>Текстове поле - це ввід тексту, який ми хочемо опрацювати.</span>
+                <span>При натисканні на кнопочку можемо порахувати кількість символів, кількість повторів кожного символу, lowercase, UPPERCASE та інші параметри.</span>
+            </p>
+            <label>
+                <span>Обрати колір:</span>
+                <input type="color" id="input_color">
+            </label>
+            <button class="btn" onclick="changeColor()">Змінити колір</button>
+            <label>
+                <span>Поле вводу:</span>
+                <textarea id="input_text" ></textarea>
+            </label>
+            <button class="btn" onclick="getText()">Опрацювати</button>
+        </div>
     </div>
-    <div class="block">
-        <p>
-            Посилання на цей код на Github: <a href="https://github.com/SurkovKostiantyn/prometheus_webinar">Перейти</a>
-        </p>
-    </div>
+
+
+    <footer>
+        <ul>
+            <li>
+                <a href="https://github.com/SurkovKostiantyn/prometheus_webinar">Посилання на цей код на Github</a>
+            </li>
+            <li>
+                <a href="https://www.w3schools.com/js/js_operators.asp">Оператори в JS</a>
+            </li>
+            <li>
+                <a href="https://www.w3schools.com/js/js_arrays.asp">Масиви в JS</a>
+            </li>
+            <li>
+                <a href="https://www.w3schools.com/js/js_functions.asp">Функції в JS</a>
+            </li>
+            <li>
+                <a href="https://www.w3schools.com/js/js_objects.asp">Об'єкти в JS</a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="https://www.w3schools.com/js/js_if_else.asp">Умовні оператори в JS</a>
+            </li>
+            <li>
+                <a href="https://www.w3schools.com/js/js_loop_for.asp">Цикли в JS</a>
+            </li>
+            <li>
+                <a href="https://www.w3schools.com/js/js_loop_while.asp">Цикли в JS</a>
+            </li>
+            <li>
+                <a href="https://www.w3schools.com/js/js_break.asp">Цикли в JS</a>
+            </li>
+            <li>
+                <a href="https://www.w3schools.com/js/js_type_conversion.asp">Типи даних в JS</a>
+            </li>
+        </ul>
+    </footer>
 </body>
 </html>

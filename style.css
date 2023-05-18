@@ -1,27 +1,53 @@
 * {
   padding: 0;
   margin: 0;
+  list-style: none;
+  text-decoration: none;
 }
 
-nav {
-  padding-top: 12px;
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  background-color: white;
+  color: black;
+  font: 400 1.3rem/1.5rem Roboto, sans-serif !important;
+  position: relative;
+}
+
+nav, footer {
+  padding: 12px 0;
   width: 100%;
   margin: 0 auto;
+  background-color: antiquewhite;
   display: flex;
   justify-content: center;
   gap: 20px;
 }
-nav a {
-  padding: 12px;
-  display: inline-block;
-  text-decoration: none;
-  background-color: white;
-  outline: 1px solid #000;
+nav ul, footer ul {
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+nav ul li, footer ul li {
+  margin-bottom: 8px;
+  border-bottom: 1px dashed #000;
+}
+nav ul a, footer ul a {
+  color: inherit;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
 }
 
 #error {
   position: absolute;
-  top: 60px;
+  top: 50%;
   left: 10%;
   height: 100px;
   width: 100px;
@@ -34,7 +60,7 @@ nav a {
 
 #joke {
   position: absolute;
-  top: 60px;
+  top: 50%;
   right: 10%;
   height: 100px;
   width: 100px;
@@ -48,36 +74,52 @@ nav a {
   text-align: center;
   transition: all 0.2s ease;
   cursor: pointer;
+  color: white;
   text-shadow: 0 0 2px #ff0000;
 }
 
-body {
-  background-color: #ccffcc;
-  color: #990000;
-  top: 0;
-  font: 400 1.2rem/1.5rem Roboto, sans-serif !important;
-  position: relative;
+.btn {
+  padding: 12px;
+  display: inline-block;
+  text-decoration: none;
+  background-color: white;
+  color: inherit;
+  box-shadow: 3px 3px 6px #000;
+  transition: all 0.1s ease;
+  border: none;
+  outline: none;
+}
+.btn:hover {
+  background-color: #faeddb;
+  scale: 0.95;
+  box-shadow: 2px 2px 4px #000;
 }
 
-.info {
-  background-color: #fff;
-  outline: 2px solid #000;
-}
 .info span {
   padding: 10px;
   display: block;
+  border-bottom: 1px dashed #000;
 }
-.info span:nth-child(2n-1) {
-  background-color: #ccffcc;
+
+.heading {
+  margin-top: -20px;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  background-color: #f4d4aa;
 }
 
 .block {
-  margin: 20px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 600px;
   gap: 40px;
+  background-color: antiquewhite;
+  margin: 20px auto;
+  padding: 20px 0;
+  box-shadow: 2px 2px 4px #000;
 }
 .block label, .block input, .block button {
   text-align: center;
