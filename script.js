@@ -133,3 +133,10 @@ const makeJoke = () => {
     joke.style.left = blockX;
     joke.style.top = blockY;
 }
+
+const copyText = () => {
+    let text = document.getElementById('textToCopy').innerText;
+    navigator.clipboard.writeText(text).
+        then(r => alert('Текст успішно скопійовано в буфер обміну: ' + text)).
+        catch(err => alert('Помилка копіювання: ' + err));
+}

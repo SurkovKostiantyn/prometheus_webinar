@@ -127,6 +127,148 @@
                 </span>
             </p>
         </div>
+        <div class="block">
+            <p class="info">
+                <span class="heading">
+                    Що таке мутація об'єкта? (Object mutation)
+                </span>
+                <span>
+                    Мутація об'єкта - це зміна об'єкта, яка відбувається після його створення.
+                    Це означає, що ми можемо змінювати властивості об'єкта, додавати нові властивості,
+                    видаляти властивості, а також змінювати значення властивостей.
+                    Питання було наступне:<br>
+                    Поясніть, будь ласка, ще з прикладами, чому можуть не працювати певні методи
+                    з новим створеним масивом об'єктів, тобто ніби створила новий масив з об'єктами,
+                    і вношу зміни до нього, але зміни все одно вносяться і в старий масив?
+                </span>
+                <span>
+                    Відповідаю:<br>
+                    Якщо ви створюєте новий масив об'єктів, а потім змінюєте один з об'єктів,
+                    то зміни відбуваються в обох масивах, оскільки вони посилаються на один і той же об'єкт.
+                    Якщо ви хочете, щоб зміни відбувалися тільки в новому масиві, вам потрібно створити
+                    новий об'єкт, який буде копією старого об'єкта, і вже змінювати новий об'єкт.
+                    Приклад:<br>
+                    <code>
+                        <span class="code">let startArray = [5, 3, 2, 8, 1, 4, 3, 7, 9, 6];</span> // Оригінальний масив <br>
+                        <span class="code">let copiedArray = startArray;</span> // Копія масиву <br>
+                        <span class="code">console.log(startArray);</span> // [5, 3, 2, 8, 1, 4, 3, 7, 9, 6] <br>
+                        <span class="code">console.log(copiedArray);</span> // [5, 3, 2, 8, 1, 4, 3, 7, 9, 6]<br>
+                        // бачимо, що поки вони однакові. Тепер змінимо копію:<br>
+                        <span class="code">copiedArray[0] = 100;</span><br>
+                        <span class="code">console.log(startArray);</span> // [100, 3, 2, 8, 1, 4, 3, 7, 9, 6]<br>
+                        <span class="code">console.log(copiedArray);</span> // [100, 3, 2, 8, 1, 4, 3, 7, 9, 6]<br>
+                        // бачимо, що змінилися обидва масиви. Це тому, що ми просто створили посилання на масив, а не його копію.<br>
+                        // Щоб скопіювати масив, щоб він не змінювався, потрібно використати метод slice:<br>
+                        <span class="code">let correctCopiedArray = startArray.slice();</span><br>
+                        <span class="code">correctCopiedArray[0] = 123;</span><br>
+                        <span class="code">console.log(startArray);</span> // [100, 3, 2, 8, 1, 4, 3, 7, 9, 6]<br>
+                        <span class="code">console.log(correctCopiedArray);</span> // [123, 3, 2, 8, 1, 4, 3, 7, 9, 6]<br>
+                        // бачимо, що змінилися тільки елементи другого масиву, а оригінальний залишився незмінним.<br>
+                        // Також можна використати оператор spread:<br>
+                        <span class="code">let spreadCopiedArray = [...startArray];</span><br>
+                        <span class="code">spreadCopiedArray[0] = 321;</span><br>
+                        <span class="code">console.log(startArray);</span> // [100, 3, 2, 8, 1, 4, 3, 7, 9, 6]<br>
+                        <span class="code">console.log(spreadCopiedArray);</span> // [321, 3, 2, 8, 1, 4, 3, 7, 9, 6]<br>
+                        // бачимо, що змінилися тільки елементи другого масиву, а оригінальний залишився незмінним.<br>
+                        // Також можна використати метод concat:<br>
+                        <span class="code">let concatCopiedArray = startArray.concat();</span><br>
+                        <span class="code">concatCopiedArray[0] = 456;</span><br>
+                        <span class="code">console.log(startArray);</span> // [100, 3, 2, 8, 1, 4, 3, 7, 9, 6]<br>
+                        <span class="code">console.log(concatCopiedArray);</span> // [456, 3, 2, 8, 1, 4, 3, 7, 9, 6]<br>
+                        // бачимо, що змінилися тільки елементи другого масиву, а оригінальний залишився незмінним.<br>
+                        // Також можна використати метод Array.from:<br>
+                        <span class="code">let fromCopiedArray = Array.from(startArray);</span><br>
+                        <span class="code">fromCopiedArray[0] = 789;</span><br>
+                        <span class="code">console.log(startArray);</span> // [100, 3, 2, 8, 1, 4, 3, 7, 9, 6]<br>
+                        <span class="code">console.log(fromCopiedArray);</span> // [789, 3, 2, 8, 1, 4, 3, 7, 9, 6]<br>
+                        // бачимо, що змінилися тільки елементи другого масиву, а оригінальний залишився незмінним.<br>
+                        // Також можна використати метод Array.of:<br>
+                        <span class="code">let ofCopiedArray = Array.of(...startArray);</span><br>
+                        <span class="code">ofCopiedArray[0] = 987;</span><br>
+                        <span class="code">console.log(startArray);</span> // [100, 3, 2, 8, 1, 4, 3, 7, 9, 6]<br>
+                        <span class="code">console.log(ofCopiedArray);</span> // [987, 3, 2, 8, 1, 4, 3, 7, 9, 6]<br>
+                        // знов бачимо, що змінилися тільки елементи другого масиву, а оригінальний залишився незмінним.<br>
+                    </code>
+                </span>
+            </p>
+        </div>
+        <div class="block">
+            <p class="info">
+                <span class="heading">
+                    Що таке DOM? Що таке document/window?
+                    Що таке BOM? Що таке navigator?
+                    Що таке location? Що таке history?
+                    Приклади і всякі штуки.
+                </span>
+                <span>
+                    DOM - Document Object Model - це інтерфейс, який дозволяє отримати доступ до елементів сторінки і змінювати їх.<br>
+                    document - це об'єкт, який містить всю інформацію про сторінку, яку ми відкрили.<br>
+                    window - це об'єкт, який містить всю інформацію про вікно браузера, в якому відкрита сторінка.<br>
+                    BOM - Browser Object Model - це інтерфейс, який дозволяє отримати доступ до властивостей браузера.<br>
+                    navigator - це об'єкт, який містить інформацію про браузер, в якому відкрита сторінка.<br>
+                    location - це об'єкт, який містить інформацію про URL сторінки, яку ми відкрили.<br>
+                    history - це об'єкт, який містить інформацію про історію переходів між сторінками.<br>
+                </span>
+                <span>
+                    Приклади:<br>
+                    <code>
+                        // отримати доступ до елемента сторінки по ID:<br>
+                        <span class="code">let element = document.getElementById('elementId');</span><br>
+                        // отримати доступ до елементів сторінки по classname:<br>
+                        <span class="code">let elements = document.getElementsByClassName('elementClass');</span><br>
+                        // отримати доступ до елементів сторінки по тегу:<br>
+                        <span class="code">let elements = document.getElementsByTagName('div');</span><br>
+                        // отримати доступ до елементів сторінки по селектору:<br>
+                        <span class="code">let elements = document.querySelectorAll('.elementClass');</span><br>
+                        <span class="code">let element = document.querySelector('#elementId');</span><br>
+                        <span class="code">let element = document.querySelector('div');</span><br>
+                        <span class="code">let element = document.querySelector('[name="elementName"]');</span><br>
+                        <span class="code">let element = document.querySelector('[name^="elementName"]');</span><br>
+                        <span class="code">let element = document.querySelector('[name$="elementName"]');</span><br>
+                        <span class="code">let element = document.querySelector('[name*="elementName"]');</span><br>
+                        // отримати перелік всіх елементів сторінки:<br>
+                        <span class="code">let elements = document.querySelectorAll('*');</span><br>
+                        // отримати доступ до властивостей браузера:<br>
+                        <span class="code">let browserWidth = window.innerWidth;</span><br>
+                        <span class="code">let browserHeight = window.innerHeight;</span><br>
+                        <span class="code">let browserWidth = window.outerWidth;</span><br>
+                        <span class="code">let browserHeight = window.outerHeight;</span><br>
+                        <span class="code">let browserWidth = window.screen.width;</span><br>
+                        <span class="code">let browserHeight = window.screen.height;</span><br>
+                        <span class="code">let browserWidth = window.screen.availWidth;</span><br>
+                        <span class="code">let browserHeight = window.screen.availHeight;</span><br>
+                        // отримати інформацію про браузер:<br>
+                        <span class="code">let browserName = navigator.appName;</span><br>
+                        <span class="code">let browserVersion = navigator.appVersion;</span><br>
+                        <span class="code">let browserCodeName = navigator.appCodeName;</span><br>
+                        <span class="code">let browserPlatform = navigator.platform;</span><br>
+                        <span class="code">let browserLanguage = navigator.language;</span><br>
+                        <span class="code">let browserOnline = navigator.onLine;</span><br>
+                        <span class="code">let browserCookiesEnabled = navigator.cookieEnabled;</span><br>
+                        // отримати інформацію про URL сторінки:<br>
+                        <span class="code">let url = location.href;</span><br>
+                        <span class="code">let url = location.protocol;</span><br>
+                        <span class="code">let url = location.host;</span><br>
+                        <span class="code">let url = location.hostname;</span><br>
+                        // отримати інформацію про історію переходів між сторінками:<br>
+                        <span class="code">let historyLength = history.length;</span><br>
+                        <span class="code">history.back();</span><br>
+                        <span class="code">history.forward();</span><br>
+                        <span class="code">history.go(-2);</span><br>
+                        // отримати доступ до localStorage:<br>
+                        <span class="code">localStorage.setItem('key', 'value');</span><br>
+                        <span class="code">let value = localStorage.getItem('key');</span><br>
+                        <span class="code">localStorage.removeItem('key');</span><br>
+                        <span class="code">localStorage.clear();</span><br>
+                        // отримати доступ до sessionStorage:<br>
+                        <span class="code">sessionStorage.setItem('key', 'value');</span><br>
+                        <span class="code">let value = sessionStorage.getItem('key');</span><br>
+                        <span class="code">sessionStorage.removeItem('key');</span><br>
+                        <span class="code">sessionStorage.clear();</span><br>
+                    </code>
+                </span>
+            </p>
+        </div>
     </div>
     <footer>
         <ul>
