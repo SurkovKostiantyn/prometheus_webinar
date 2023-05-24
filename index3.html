@@ -17,14 +17,216 @@
   <div class="content">
     <div class="block">
       <p class="info">
-        <span class="heading">Запитання 1</span>
+        <span class="heading">Запитання про використання лапок різних типів ( ' ` " )</span>
         <span>
-            <b>Відповідь:</b>
+            <b>Лапки типу ' (одинарні):</b>
+            Рядки, оголошені в одинарних лапках, є простими рядками.
+            Вони дозволяють містити подвійні лапки без необхідності екранування і навпаки.
+            <code>
+              <span class="code">let name = 'John';</span><br>
+              <span class="code">console.log('Привіт, ' + name + '!');</span> // Виведе: Привіт, John!<br>
+            </code>
+          <b>Лапки типу " (подвійні):</b>
+          Рядки, оголошені в подвійних лапках, є простими рядками.
+          Вони також дозволяють містити одинарні лапки без необхідності екранування і навпаки.
+          <code>
+              <span class="code">let name = "John";</span><br>
+              <span class="code">console.log("Привіт, " + name + "!");</span> // Виведе: Привіт, John!<br>
+          </code>
+          <b>Лапки типу ` (бектики):</b>
+          Рядки, оголошені в бектиках, є шаблонними рядками.
+          Вони дозволяють використовувати вкладені вирази й виклики функцій.
+          <code>
+              <span class="code">let name = "John";</span><br>
+              <span class="code">console.log(`Привіт, ${name}!`);</span> // Виведе: Привіт, John!<br>
+              <span class="code">console.log(`Привіт, ${name.toUpperCase()}!`);</span> // Виведе: Привіт, JOHN!<br>
+          </code>
+          Це називається <b>інтерполяція рядків</b> (string interpolation), або <b>шаблонні рядки</b> (template strings).
+          Строка, оголошена в бектиках, може містити вкладені вирази, які обчислюються і вставляються в рядок.
+          Вкладений вираз відокремлюється від решти рядка за допомогою <b>${...}</b>.
+          Це дозволяє вставляти в рядок значення будь-якого типу даних.
         </span>
       </p>
     </div>
+    <div class="block">
+      <p class="info">
+        <span class="heading">Що краще, <b>const</b> чи <b>let</b>?</span>
+        <span>
+          Вибір між <b>const</b> та <b>let</b> залежить від того, чи плануєте ви змінювати
+          значення змінної child всередині циклу. Якщо ви не плануєте змінювати значення,
+          краще використовувати <b>const</b>, що допоможе запобігти ненавмисній зміні значення.
+          Якщо ви плануєте змінювати значення <b>child</b>, можна використовувати <b>let</b>.
+        </span>
+      </p>
+    </div>
+    <div class="block">
+      <p class="info">
+        <span class="heading">Чи можна користатись copilot на технічних співбесідах?</span>
+        <span>
+            Ні, не можна. Це не чесно. Це як списувати на контрольній роботі.
+        </span>
+      </p>
+    </div>
+    <div class="block">
+      <p class="info">
+        <span class="heading">На технічній співбесіді дозволяють користуватись своїм ПК, чи тільки комп'ютером компанії?</span>
+        <span>
+            Це залежить від компанії. Не існує загальноприйнятого правила,
+            тому якщо ви не впевнені, краще запитайте у рекрутера компанії.
+        </span>
+      </p>
+    </div>
+    <div class="block">
+      <p class="info">
+        <span class="heading">Наслідування в JS</span>
+        <span>
+            Наслідування в JS відбувається за допомогою прототипів.
+            Кожен об'єкт має прототип, який використовується для пошуку властивостей,
+            які не визначені в самому об'єкті. Коли ви спробуєте отримати властивість об'єкта,
+            яка не визначена в ньому самому, JavaScript буде шукати її в прототипі цього об'єкта,
+            а потім в прототипі прототипа, і так далі, поки не буде знайдено
+            властивість або не буде досягнуто кінця ланцюжка прототипів.
+            Приклад:
+            <code>
+                <span class="code">let animal = { eats: true };</span><br>
+                <span class="code">let rabbit = { jumps: true };</span><br>
+                <span class="code">rabbit.__proto__ = animal;</span><br>
+                <span class="code">console.log(rabbit.eats); // true</span><br>
+                <span class="code">console.log(rabbit.jumps); // true</span><br>
+            </code>
+            В даному прикладі об'єкт <b>animal</b> є прототипом об'єкта <b>rabbit</b>.
+            Якщо властивість не знайдена в об'єкті <b>rabbit</b>, вона шукається в прототипі.
+            Якщо властивість не знайдена в прототипі, вона шукається в прототипі прототипа, і так далі.
+            Якщо властивість не знайдена в жодному з прототипів, повертається <b>undefined</b>.
+            Більше про прототипи можна прочитати <a href="https://developer.mozilla.org/ru/docs/Learn/JavaScript/Objects/Classes_in_JavaScript">тут</a>.
+        </span>
+      </p>
+    </div>
+    <div class="block">
+      <p class="info">
+        <span class="heading">Ключове слово <b>this</b></span>
+        <span>
+            <b>This</b> - це ключове слово, яке використовується для доступу до об'єкта,
+            в якому викликається функція. Приклад:
+            <code>
+                <span class="code">let user = {</span><br>
+                <span class="code">&nbsp;&nbsp;name: "John",</span><br>
+                <span class="code">&nbsp;&nbsp;age: 30,</span><br>
+                <span class="code">&nbsp;&nbsp;sayHi() {</span><br>
+                <span class="code">&nbsp;&nbsp;&nbsp;&nbsp;// this - це поточний об'єкт</span><br>
+                <span class="code">&nbsp;&nbsp;&nbsp;&nbsp;console.log(this.name);</span><br>
+                <span class="code">&nbsp;&nbsp;}</span><br>
+                <span class="code">};</span><br>
+                <span class="code">user.sayHi(); // John</span><br>
+            </code>
+        </span>
+      </p>
+    </div>
+    <div class="block">
+      <p class="info">
+        <span class="heading">Завдання 8.7 - пояснити детально </span>
+        <span>
+          Посилання на завдання:
+          <a href="https://apps.prometheus.org.ua/learning/course/course-v1:Ciklum+FEB101+2023_T1/block-v1:Ciklum+FEB101+2023_T1+type@sequential+block@9f756c9b2aa64a669126035838a871de/block-v1:Ciklum+FEB101+2023_T1+type@vertical+block@3472611ef69d4cef9f965adfef905962">завдання 8.7</a>
+        </span>
+        <span>
+          Суть завдання полягає в наступному: <br>
+          Є масив рядків. Є блоки коду, які реверсять рядки масиву та пушать їх в новий масив. Цих блоків коду 3.
+          Потрібно оптимізувати код, застосувавши функцію.<br>
+          Оригінальний блок коду:
+          <code>
+            <span class="code">const strings = ['abcd', 'karamba', 'racecar'];</span>// масив рядків<br>
+            <span class="code">const reversedStrings = [];</span>// масив, в який будуть пушитись реверснуті рядки<br>
+            <span class="code">const buffer = [];</span><br>
+            <span class="code">for (let i = strings[0].length; i >= 0; i--) {</span><br>
+            <span class="code">&nbsp;buffer.push(strings[0][i]);</span><br>
+            <span class="code">}</span><br>
+          </code>
+          Рішення:
+            <code>
+                <span class="code">export default {</span><br>
+                <span class="code">&nbsp;subOptimal: () => {</span><br>
+                <span class="code">&nbsp;&nbsp;const strings = ['abcd', 'karamba', 'racecar'];</span><br>
+                &nbsp;&nbsp;/* Повертаємо масив рядків, кожен з яких реверснутий<br>
+                &nbsp;&nbsp;за допомогою ітератора <b>map</b> та функцій<br>
+                &nbsp;&nbsp;<b>split()</b> (розбиває рядок на масив символів),<br>
+                &nbsp;&nbsp;<b>reverse()</b> (реверсить масив),<br>
+                &nbsp;&nbsp;<b>join()</b> (з'єднує масив символів в рядок)*/<br>
+                <span class="code">&nbsp;&nbsp;return strings.map(item => this.reverseString(item));</span><br>
+                <span class="code">&nbsp;},</span><br>
+                <br>
+                <span class="code">&nbsp;reverseString: (str) => {</span><br>
+                <span class="code">&nbsp;&nbsp;return str.split('').reverse().join('');</span><br>
+                <span class="code">&nbsp;}</span><br>
+                <span class="code">};</span><br>
+            </code>
+        </span>
+      </p>
+    </div>
+    <div class="block">
+      <p class="info">
+          <span class="heading">Пояснити різницю між <b>getElementById</b> та <b>getElementsByClassName</b></span>
+            <span>
+                <b>getElementById</b> - повертає унікальний елемент з вказаним атрибутом id.<br>
+                <b>getElementsByClassName</b> - повертає масив елементів з вказаним атрибутом class.
+                Приклад:
+                <code>
+                    <span class="code">&lt;div id="myId" class="myClass"&gt;&lt;/div&gt;</span><br>
+                    <span class="code">&lt;div class="myClass"&gt;&lt;/div&gt;</span><br>
+                    <span class="code">&lt;div class="myClass"&gt;&lt;/div&gt;</span><br>
+                    <span class="code">&lt;div class="myClass"&gt;&lt;/div&gt;</span><br>
+
+                    <span class="code">&lt;script&gt;</span><br>
+                    <span class="code">&nbsp;const element = document.getElementById('myId');</span><br>
+                    <span class="code">&nbsp;const elements = document.getElementsByClassName('myClass');</span><br>
+                    <span class="code">&nbsp;console.log(element);</span><br>
+                    &nbsp;// Отримаємо елемент з id="myId"<br>
+                    <span class="code">&nbsp;console.log(elements);</span><br>
+                    &nbsp;// Отримаємо масив елементів з class="myClass"<br>
+                    <span class="code">&lt;/script&gt;</span><br>
+                </code>
+            </span>
+      </p>
+    </div>
+    <div class="block">
+        <p class="info">
+            <span class="heading">Завдання 8.23</span>
+            <span>
+                Рішенням задачі є навішування обробника подій на кнопку, який буде викликати функцію, що буде
+                додавати або прибирати клас <b>hidden</b> у елемента.<br>
+                Один зі способів реалізації: ми передаємо в функцію обробника подій об'єкт події <b>e</b>, в якому
+                знаходимо властивість <b>target</b>, яка містить елемент, на який навішується обробник подій. Потім
+                ми перевіряємо, чи відмічений чекбокс, і в залежності від цього додаємо або прибираємо клас
+                <b>hidden</b> у елемента.<br>
+                <code>
+                    <span class="code">const element = document.querySelector('.text');</span><br>
+                    <span class="code">const input = document.querySelector('input[type="checkbox"]');</span><br>
+                    <span class="code">input.addEventListener('click', (e) => {</span><br>
+                    <span class="code">&nbsp;if (e.target.checked) {</span><br>
+                    <span class="code">&nbsp;&nbsp;element.classList.remove('hidden')</span><br>
+                    <span class="code">&nbsp;} else {</span><br>
+                    <span class="code">&nbsp;&nbsp;element.classList.add('hidden')</span><br>
+                    <span class="code">&nbsp;}</span><br>
+                    <span class="code">})</span><br>
+                </code>
+            </span>
+        </p>
+    </div>
+    <div class="block">
+        <p class="info">
+            <span class="heading">
+                80% цього тексту згенеровано за допомогою copilot,
+                10% - оброблено за допомогою ChatGPT,
+                ще 8% копіпаст і 2% складає цей рядок
+            </span>
+            <span>
+                Зустрінемось наступного тижня, друзі!
+            </span>
+        </p>
+    </div>
   </div>
-  <footer>
+
+<footer>
     <ul>
       <li>
         <a href="https://github.com/SurkovKostiantyn/prometheus_webinar">Посилання на цей код на Github</a>
