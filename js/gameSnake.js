@@ -8,10 +8,12 @@ let field = null;
 let snake = null;
 let coin = null;
 let score = 0;
+let fieldScore = null;
 
 const gameInit = () => {
     console.log('Game init');
     field = document.getElementById('gameSnake');
+    fieldScore = document.getElementById('fieldScore');
     snake = document.createElement('div');
     field.appendChild(snake);
     setFieldProperties();
